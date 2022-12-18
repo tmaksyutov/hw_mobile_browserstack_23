@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 public class SelenideSearchTest extends TestBase {
 
     @Test
-    void successSearchTest() {
+    void successSearchWikiTest() {
         step("Skip settings", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click();
         });
