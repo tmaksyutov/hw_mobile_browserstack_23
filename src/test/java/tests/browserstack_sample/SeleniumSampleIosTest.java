@@ -1,4 +1,4 @@
-//package tests.browserstack_sample;
+package tests.browserstack_sample;
 //import java.net.URL;
 //import java.util.List;
 //import java.net.MalformedURLException;
