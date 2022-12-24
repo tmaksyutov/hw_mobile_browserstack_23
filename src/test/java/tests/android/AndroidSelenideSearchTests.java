@@ -20,7 +20,8 @@ public class AndroidSelenideSearchTests extends TestBase {
             $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         });
         step("Verify content found", () -> {
-            $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
+            $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
+                    .shouldHave(sizeGreaterThan(0));
         });
 
     }
