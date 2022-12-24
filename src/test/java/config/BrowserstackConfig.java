@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:android.properties"})
+        "classpath:browserstack.properties"})
 
 public interface BrowserstackConfig extends Config {
 
