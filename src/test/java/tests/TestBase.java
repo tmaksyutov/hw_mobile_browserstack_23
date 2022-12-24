@@ -15,7 +15,6 @@ public class TestBase {
     @BeforeAll
     public static void setUp() {
 
-
         Configuration.browser = BrowserstackDriver.class.getName();
         Configuration.browserSize = null;
     }
