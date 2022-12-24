@@ -17,7 +17,7 @@ public class BrowserstackHelper {
 
         return given()
                 .log().all()
-                .auth().basic(config.user(), config.key())
+                .auth().basic("dadojkeee_PK7yEs", "C8bxrxsfqpDFgawgBWQd")
                 .when()
                 .get(url)
                 .then()
