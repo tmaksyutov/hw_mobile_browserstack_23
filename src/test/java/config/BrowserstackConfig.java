@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${platform}.properties"})
+        "classpath:android.properties"})
 
 public interface BrowserstackConfig extends Config {
 
@@ -30,6 +30,9 @@ public interface BrowserstackConfig extends Config {
 
     @Key("name")
     String name();
+
+    @Key ("baseUrl")
+    String baseUrl();
 
 
 
