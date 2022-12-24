@@ -2,6 +2,7 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
+import lombok.SneakyThrows;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -14,8 +15,17 @@ import java.net.URL;
 
 public class BrowserstackDriver implements WebDriverProvider {
 
+    public static URL getBrowserstackUrl() {
+        try {
+            return new URL(config.baseUrl());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
+    @SneakyThrows
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
@@ -29,7 +39,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", config.app());
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device",config.device());
+        mutableCapabilities.setCapability("device", config.device());
         mutableCapabilities.setCapability("os_version", config.osVersion());
 
         // Set other BrowserStack capabilities
@@ -40,13 +50,5 @@ public class BrowserstackDriver implements WebDriverProvider {
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
         return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
-    }
-
-    public static URL getBrowserstackUrl() {
-        try {
-            return new URL(config.baseUrl());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
