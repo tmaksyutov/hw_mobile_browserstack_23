@@ -14,6 +14,7 @@ import java.net.URL;
 
 
 public class BrowserstackDriver implements WebDriverProvider {
+    static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
     public static URL getBrowserstackUrl() {
         try {
@@ -23,7 +24,6 @@ public class BrowserstackDriver implements WebDriverProvider {
         }
     }
 
-    static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
     @SneakyThrows
     @Override
