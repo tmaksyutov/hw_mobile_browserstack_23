@@ -8,6 +8,10 @@ repositories {
     mavenCentral()
 }
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 def allureVersion = "2.19.0",
     selenideVersion = "6.9.0",
     appiumVersion = "8.1.1",
